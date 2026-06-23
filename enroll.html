@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply for Enrolment | ADTC Firozabad</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link" data-key="skip">Skip to Main Content</a>
+<div class="tricolor-bar"><div class="tc-saffron"></div><div class="tc-white"></div><div class="tc-green"></div></div>
+
+<div class="ownership-bar">
+  An initiative of <strong>Kisaan Eicher Tractors, Shikohabad</strong> &nbsp;&middot;&nbsp; Govt. of Uttar Pradesh Accredited &nbsp;&middot;&nbsp; Under CMVR 1989
+</div>
+<div class="top-strip">
+  <span class="strip-left" data-key="govt-strip">Government of Uttar Pradesh | Ministry of Road Transport &amp; Highways | Under CMVR 1989</span>
+  <div class="strip-right">
+    <button class="lang-btn" id="lang-toggle">हिंदी</button>
+    <span class="strip-divider">|</span>
+    <a href="#main-content" data-key="screen">Screen Reader</a>
+    <span class="strip-divider">|</span>
+    <a href="tel:1033" data-key="helpline">Helpline: 1033 (Road Safety)</a>
+  </div>
+</div>
+<header>
+  <div class="logo-emblem" aria-hidden="true">
+    <img src="logo/Gemini_Generated_Image_n7xuzqn7xuzqn7xu.png" alt="ADTC Firozabad" style="height:64px;width:auto;object-fit:contain;display:block;"/>
+  </div>
+  <div class="logo-text">
+    <div class="hindi-name">मान्यता प्राप्त ड्राइविंग प्रशिक्षण केंद्र</div>
+    <div class="main-name" data-key="centre-name">Accredited Driving Training Centre</div>
+    <div class="sub-name" data-key="centre-sub">Firozabad, Uttar Pradesh · Govt. of U.P. · Under CMVR 1989</div>
+  </div>
+  <div class="header-badge" data-key="acc-badge">ACCREDITED&#10;CENTRE ✓</div>
+</header>
+<nav role="navigation" aria-label="Main navigation">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-key="nav-home">Home</a></li>
+    <li><a href="about.html" data-key="nav-about">About ADTC</a></li>
+    <li><a href="process.html" data-key="nav-process">Process</a></li>
+    <li><a href="infrastructure.html" data-key="nav-infra">Infrastructure</a></li>
+    <li><a href="form5b.html" data-key="nav-form5b">Form 5B</a></li>
+    <li><a href="faq.html" data-key="nav-faq">FAQ</a></li>
+    <li><a href="inauguration.html">Inauguration</a></li>
+    <li><a href="contact.html" data-key="nav-contact">Contact Us</a></li>
+    <li><a href="enroll.html" class="nav-cta" data-key="nav-apply">Apply Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="notice-bar"><span class="notice-label" data-key="notice-label">NOTICE:</span><div class="notice-track-wrap"><span class="notice-track" data-key="notice-text">July 2026 batch enrollment now open at ADTC Firozabad. | Complete this form and our team will contact you within 1 working day to confirm your slot.</span></div></div>
+
+<main id="main-content" tabindex="-1">
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-crumb"><a href="index.html">Home</a> / <span>Apply Now</span></div>
+      <h1>Apply for <span>Enrolment</span></h1>
+      <p>Fill in this form to begin your enrolment at ADTC Firozabad. Our team will contact you within one working day to confirm your batch, documents, and next steps.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="grid-2" style="gap:52px;align-items:start;">
+
+      <!-- FORM -->
+      <div>
+        <div class="form-card" style="background:#fff;border-color:var(--border);">
+          <h3 style="font-size:1.05rem;margin-bottom:4px;">Enrolment Application Form</h3>
+          <p style="font-size:.78rem;color:var(--muted);margin-bottom:22px;">Fields marked with * are required. This form is for pre-registration — final enrolment is completed in person at the centre.</p>
+          <form id="enrollForm" onsubmit="handleEnquiry(event)" novalidate>
+
+            <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);">Personal Details</div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name *</label>
+                <input type="text" id="fname" name="fname" placeholder="Ramesh" required/>
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name *</label>
+                <input type="text" id="lname" name="lname" placeholder="Kumar" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob" name="dob" required/>
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                  <option value="">— Select —</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Mobile Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required/>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com"/>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Residential Address</label>
+              <textarea id="address" name="address" placeholder="House No., Street, Area, Firozabad / Agra District..." style="min-height:70px;"></textarea>
+            </div>
+
+            <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;margin-top:6px;padding-bottom:8px;border-bottom:1px solid var(--border);">Training Preferences</div>
+
+            <div class="form-group">
+              <label for="vehicle">Vehicle Category *</label>
+              <select id="vehicle" name="vehicle" required>
+                <option value="">— Select Category —</option>
+                <option>Two-Wheeler (Motorcycle / Scooter)</option>
+                <option>Light Motor Vehicle — LMV (Car)</option>
+                <option>Two-Wheeler + LMV (Combined)</option>
+                <option>Commercial / Transport Vehicle</option>
+                <option>Not Sure — Please Advise</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="programme">Preferred Programme</label>
+              <select id="programme" name="programme">
+                <option value="">— Select Programme —</option>
+                <option>Regular Batch (2–3 months)</option>
+                <option>Standard Course (4–6 weeks)</option>
+                <option>Intensive Programme (3–4 weeks)</option>
+                <option>Flexible — advise me</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="batch">Preferred Batch Start</label>
+              <select id="batch" name="batch">
+                <option value="">— Select —</option>
+                <option>July 2026 (Next Batch)</option>
+                <option>August 2026</option>
+                <option>September 2026</option>
+                <option>Flexible — any available</option>
+              </select>
+            </div>
+
+            <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;margin-top:6px;padding-bottom:8px;border-bottom:1px solid var(--border);">Identity &amp; Documentation</div>
+
+            <div class="form-group">
+              <label for="id-type">Primary ID Type</label>
+              <select id="id-type" name="id-type">
+                <option value="">— Select —</option>
+                <option>Aadhaar Card</option>
+                <option>Voter ID Card</option>
+                <option>Passport</option>
+                <option>Driving Licence (if renewing)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="learner">Learner's Licence Number (if available)</label>
+              <input type="text" id="learner" name="learner" placeholder="LL-UP45-XXXXXXX"/>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Additional Information / Questions</label>
+              <textarea id="notes" name="notes" placeholder="Any specific questions, medical conditions relevant to training, or other information..."></textarea>
+            </div>
+
+            <!-- Declaration -->
+            <div style="background:var(--off);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-bottom:18px;font-size:.78rem;color:var(--muted);line-height:1.65;">
+              By submitting this form, I confirm that the information provided is accurate to the best of my knowledge. I understand that this is a pre-registration form and final enrolment is completed in person at ADTC Firozabad with original documents.
+            </div>
+
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;">Submit Enrolment Application</button>
+            <p class="form-note">Our team will call you on the number provided within 1 working day to confirm your slot and guide you on document submission.</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- SIDEBAR INFO -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <div style="background:linear-gradient(135deg,#0d2b5e,#163a80);border-radius:8px;padding:26px 24px;color:#fff;">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--saffron);text-transform:uppercase;margin-bottom:14px;">Next Batch</div>
+          <div style="font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:4px;">July 2026</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.68);margin-bottom:18px;">Limited seats available — apply early to secure your slot.</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:.80rem;color:rgba(255,255,255,.75);">
+            <div style="display:flex;justify-content:space-between;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.10);"><span>Two-Wheeler</span><span style="color:#fff;font-weight:600;">Available</span></div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.10);"><span>LMV (Car)</span><span style="color:#fff;font-weight:600;">Available</span></div>
+            <div style="display:flex;justify-content:space-between;"><span>Commercial</span><span style="color:rgba(255,255,255,.5);font-weight:600;">Contact Centre</span></div>
+          </div>
+        </div>
+
+        <div style="background:var(--off);border:1px solid var(--border);border-radius:8px;padding:22px 20px;">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:14px;">Documents to Bring on Day 1</div>
+          <ul class="check-list" style="margin:0;">
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg></span>Aadhaar Card / Voter ID / Passport (original + copy)</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg></span>Address proof (any valid government document)</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg></span>4–6 passport-size photographs</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg></span>Medical fitness certificate (Form 1A)</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg></span>Date of birth proof</li>
+            <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg></span>Learner's Licence (for LMV / commercial categories)</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--off);border:1px solid var(--border);border-radius:8px;padding:22px 20px;">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:14px;">Contact the Centre</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:10px;align-items:center;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              <span style="font-size:.84rem;font-weight:600;color:var(--navy);">+91 97605 14938</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span style="font-size:.84rem;color:var(--navy);">info@adtcfirozabad.gov.in</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              <span style="font-size:.84rem;color:var(--navy);">Mon–Sat, 9:00 AM – 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="process.html" style="text-decoration:none;">
+          <div style="background:var(--off);border:1px solid var(--border);border-radius:8px;padding:16px 20px;display:flex;gap:12px;align-items:center;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(13,43,94,.10)'" onmouseout="this.style.boxShadow='none'">
+            <div class="icon-box ib-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <div><div style="font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:2px;">Read the full process first</div><div style="font-size:.74rem;color:var(--muted);">Understand what to expect before applying</div></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col"><div class="footer-brand" data-key="f-brand">ADTC Firozabad</div><p>An initiative of Kisaan Eicher Tractors, Shikohabad. Accredited Driving Training Centre, Firozabad — officially recognized under CMVR 1989 and monitored by the UP Transport Department.</p></div>
+    <div class="footer-col"><h4 data-key="f-h2">Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About ADTC</a></li><li><a href="process.html">Process</a></li><li><a href="infrastructure.html">Infrastructure</a></li><li><a href="form5b.html">Form 5B</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div class="footer-col"><h4 data-key="f-h3">Government Links</h4><ul><li><a href="https://parivahan.gov.in/" target="_blank" rel="noopener noreferrer">Parivahan Portal</a></li><li><a href="https://uptransport.upsdc.gov.in/" target="_blank" rel="noopener noreferrer">UP Transport Dept.</a></li><li><a href="https://morth.nic.in/" target="_blank" rel="noopener noreferrer">MoRTH — India</a></li><li><a href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noopener noreferrer">Sarathi — DL Services</a></li><li><a href="https://morth.nic.in/central-motor-vehicle-rules" target="_blank" rel="noopener noreferrer">CMVR 1989 Rules</a></li><li><a href="https://uptransport.upsdc.gov.in/" target="_blank" rel="noopener noreferrer">RTO Firozabad (UP Transport)</a></li></ul></div>
+    <div class="footer-col"><h4 data-key="f-h4">Contact</h4><p>Wazirpur Jihalpur,<br>Firozabad, UP — 283 203<br><br>+91 97605 14938<br>info@adtcfirozabad.gov.in<br>Mon-Sat: 9 AM - 5 PM</p></div>
+  </div>
+  <div class="footer-bottom">
+    <span data-key="f-copy">© 2026 ADTC Firozabad — Government of Uttar Pradesh. All rights reserved.</span>
+    <span><a href="privacy.html" data-key="f-privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" data-key="f-terms">Terms of Use</a> &nbsp;·&nbsp; <a href="grievance.html" data-key="f-grievance">Grievance Redressal</a> &nbsp;·&nbsp; <a href="rti.html" data-key="f-rti">RTI</a></span>
+  </div>
+</footer>
+<button id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5,12 12,5 19,12"/></svg></button>
+<script src="script.js"></script>
+</body>
+</html>

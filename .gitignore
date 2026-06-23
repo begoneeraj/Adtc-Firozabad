@@ -1,0 +1,11 @@
+# Saved Facebook page — not needed in repo (copyrighted third-party content)
+video/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp

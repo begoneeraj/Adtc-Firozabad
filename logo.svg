@@ -1,0 +1,36 @@
+<svg viewBox="0 0 140 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer ring / steering wheel rim -->
+  <circle cx="70" cy="62" r="52" fill="none" stroke="#1a4b7a" stroke-width="11"/>
+  <!-- Interior background (cream upper) -->
+  <circle cx="70" cy="62" r="41" fill="#ede8db"/>
+  <!-- Road: bottom-fill interior dark zone -->
+  <path d="M29,62 a41,41 0 0,0 82,0 Z" fill="#1a4b7a" opacity="0.08"/>
+  <!-- Road perspective lines inside wheel -->
+  <line x1="70" y1="92" x2="55" y2="103" stroke="#1a4b7a" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="70" y1="92" x2="85" y2="103" stroke="#1a4b7a" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <line x1="70" y1="74" x2="50" y2="103" stroke="#1a4b7a" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+  <line x1="70" y1="74" x2="90" y2="103" stroke="#1a4b7a" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+  <!-- Center road strip -->
+  <line x1="70" y1="72" x2="70" y2="103" stroke="#ede8db" stroke-width="3" stroke-dasharray="5 4"/>
+  <!-- Person silhouette - head -->
+  <circle cx="70" cy="44" r="7.5" fill="#1a4b7a"/>
+  <!-- Person silhouette - shoulders -->
+  <path d="M56 68 Q70 56 84 68" fill="#1a4b7a"/>
+  <!-- Center hub -->
+  <circle cx="70" cy="62" r="5.5" fill="#1a4b7a"/>
+  <!-- Spoke: TOP -->
+  <line x1="70" y1="21" x2="70" y2="57" stroke="#1a4b7a" stroke-width="6" stroke-linecap="round"/>
+  <!-- Spoke: BOTTOM-LEFT -->
+  <line x1="22" y1="89" x2="65" y2="65" stroke="#1a4b7a" stroke-width="6" stroke-linecap="round"/>
+  <!-- Spoke: BOTTOM-RIGHT -->
+  <line x1="118" y1="89" x2="75" y2="65" stroke="#1a4b7a" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- ADTC text -->
+  <text x="70" y="135" font-family="'Inter','Arial Black',sans-serif" font-size="26" font-weight="900" fill="#1a4b7a" text-anchor="middle" letter-spacing="3">ADTC</text>
+  <!-- FIROZABAD text -->
+  <text x="70" y="151" font-family="'Inter','Arial',sans-serif" font-size="12.5" font-weight="700" fill="#1a4b7a" text-anchor="middle" letter-spacing="4">FIROZABAD</text>
+  <!-- Separator line -->
+  <line x1="24" y1="157" x2="116" y2="157" stroke="#1a4b7a" stroke-width="1.2"/>
+  <!-- Tagline -->
+  <text x="70" y="169" font-family="'Inter','Arial',sans-serif" font-size="7.5" font-weight="500" fill="#5a7eaa" text-anchor="middle" letter-spacing="2.5">DRIVE WITH CONFIDENCE</text>
+</svg>
