@@ -70,7 +70,11 @@
         <div class="form-card" style="background:#fff;border-color:var(--border);">
           <h3 style="font-size:1.05rem;margin-bottom:4px;">Enrolment Application Form</h3>
           <p style="font-size:.78rem;color:var(--muted);margin-bottom:22px;">Fields marked with * are required. This form is for pre-registration — final enrolment is completed in person at the centre.</p>
-          <form id="enrollForm" onsubmit="handleEnquiry(event)" novalidate>
+          <form id="enrollForm" name="enroll" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleEnquiry(event)" novalidate>
+            <input type="hidden" name="form-name" value="enroll"/>
+            <p style="position:absolute;left:-9999px;" aria-hidden="true">
+              <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"/></label>
+            </p>
 
             <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);">Personal Details</div>
 

@@ -310,9 +310,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Form submit helper (used on contact/enroll pages)
+// Form submit helper (used on contact/enroll pages) — posts to Netlify Forms
 function handleEnquiry(e) {
   e.preventDefault();
+  const form = e.target;
   const name = document.getElementById('fname')?.value.trim();
   const phone = document.getElementById('phone')?.value.trim();
   if (!name || !phone) {
@@ -321,8 +322,22 @@ function handleEnquiry(e) {
       : 'Please enter your name and mobile number before submitting.');
     return;
   }
-  alert(getLang() === 'hi'
-    ? `धन्यवाद, ${name}! आपकी जानकारी प्राप्त हो गई है। हम 1 कार्य दिवस में ${phone} पर संपर्क करेंगे।`
-    : `Thank you, ${name}! Your enquiry has been received. Our team will contact you at ${phone} within 1 working day.`);
-  e.target.reset();
+
+  const data = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString(),
+  })
+    .then(() => {
+      alert(getLang() === 'hi'
+        ? `धन्यवाद, ${name}! आपकी जानकारी प्राप्त हो गई है। हम 1 कार्य दिवस में ${phone} पर संपर्क करेंगे।`
+        : `Thank you, ${name}! Your enquiry has been received. Our team will contact you at ${phone} within 1 working day.`);
+      form.reset();
+    })
+    .catch(() => {
+      alert(getLang() === 'hi'
+        ? 'क्षमा करें, सबमिट करने में समस्या हुई। कृपया पुनः प्रयास करें।'
+        : 'Sorry, something went wrong submitting the form. Please try again.');
+    });
 }

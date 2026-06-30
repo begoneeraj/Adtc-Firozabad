@@ -132,7 +132,11 @@
       <div>
         <div class="form-card">
           <h3>Send an Enquiry</h3>
-          <form id="contactForm" onsubmit="handleEnquiry(event)" novalidate>
+          <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleEnquiry(event)" novalidate>
+            <input type="hidden" name="form-name" value="contact"/>
+            <p style="position:absolute;left:-9999px;" aria-hidden="true">
+              <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"/></label>
+            </p>
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First Name</label>

@@ -1,0 +1,2 @@
+# Force www -> non-www so there is a single canonical URL (matches robots.txt / sitemap domain)
+https://www.adtcfirozabad.in/*  https://adtcfirozabad.in/:splat  301!
