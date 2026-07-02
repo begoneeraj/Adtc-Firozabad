@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Form submit helper (used on contact/enroll pages) — posts to Netlify Forms
+// Contact page enquiry form — posts to Netlify Forms
 function handleEnquiry(e) {
   e.preventDefault();
   const form = e.target;
@@ -341,3 +341,124 @@ function handleEnquiry(e) {
         : 'Sorry, something went wrong submitting the form. Please try again.');
     });
 }
+
+/* ── ENROLMENT FORM (enroll.html) — posts to Flask API ── */
+(function () {
+  const form = document.getElementById('enrollForm');
+  if (!form) return;
+
+  const API_BASE = form.dataset.api || 'http://localhost:5000';
+
+  function setError(id, msg) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg;
+  }
+
+  function clearErrors() {
+    ['err-name','err-phone','err-aadhaar','err-course','err-email'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = '';
+    });
+    form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+  }
+
+  function markInvalid(inputId, errId, msg) {
+    const input = document.getElementById(inputId);
+    if (input) input.classList.add('invalid');
+    setError(errId, msg);
+  }
+
+  function validateClient() {
+    let valid = true;
+
+    const name = document.getElementById('enroll-name').value.trim();
+    if (!name) { markInvalid('enroll-name', 'err-name', 'Full name is required.'); valid = false; }
+
+    const rawPhone = document.getElementById('enroll-phone').value.replace(/\D/g, '');
+    if (!rawPhone) {
+      markInvalid('enroll-phone', 'err-phone', 'Phone number is required.'); valid = false;
+    } else if (!/^[6-9]\d{9}$/.test(rawPhone)) {
+      markInvalid('enroll-phone', 'err-phone', 'Enter a valid 10-digit Indian mobile number.'); valid = false;
+    }
+
+    const aadhaar = document.getElementById('enroll-aadhaar').value.replace(/\s/g, '');
+    if (!aadhaar) {
+      markInvalid('enroll-aadhaar', 'err-aadhaar', 'Aadhaar number is required.'); valid = false;
+    } else if (!/^\d{12}$/.test(aadhaar)) {
+      markInvalid('enroll-aadhaar', 'err-aadhaar', 'Aadhaar must be exactly 12 digits, numbers only.'); valid = false;
+    }
+
+    const course = document.getElementById('enroll-course').value;
+    if (!course) { markInvalid('enroll-course', 'err-course', 'Please select a course.'); valid = false; }
+
+    const email = document.getElementById('enroll-email').value.trim();
+    if (!email) {
+      markInvalid('enroll-email', 'err-email', 'Email address is required.'); valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      markInvalid('enroll-email', 'err-email', 'Enter a valid email address.'); valid = false;
+    }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    clearErrors();
+    if (!validateClient()) return;
+
+    const btn = document.getElementById('enrollBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    const payload = {
+      name:             document.getElementById('enroll-name').value.trim(),
+      phone:            document.getElementById('enroll-phone').value.replace(/\D/g, ''),
+      aadhaar:          document.getElementById('enroll-aadhaar').value.replace(/\s/g, ''),
+      learners_license: document.getElementById('enroll-ll').value.trim(),
+      preferred_course: document.getElementById('enroll-course').value,
+      email:            document.getElementById('enroll-email').value.trim(),
+    };
+
+    try {
+      const res  = await fetch(API_BASE + '/api/enroll', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        document.getElementById('enrollFormWrap').innerHTML = `
+          <div class="form-success">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>
+            </div>
+            <h3>Registration Received!</h3>
+            <p>Your information has been received. We will contact you soon.</p>
+            <p style="margin-top:8px;font-size:.78rem;">A confirmation has been sent to <strong>${payload.email}</strong><br>Our team will call you at <strong>+91 ${payload.phone}</strong> within 24 hours.</p>
+          </div>`;
+      } else {
+        const fieldMap = {
+          name: ['enroll-name','err-name'],
+          phone: ['enroll-phone','err-phone'],
+          aadhaar: ['enroll-aadhaar','err-aadhaar'],
+          preferred_course: ['enroll-course','err-course'],
+          email: ['enroll-email','err-email'],
+        };
+        if (data.errors) {
+          Object.entries(data.errors).forEach(([field, msg]) => {
+            if (fieldMap[field]) markInvalid(...fieldMap[field], msg);
+          });
+        }
+        btn.disabled = false;
+        btn.textContent = 'Submit Registration';
+      }
+    } catch (_) {
+      setError('err-name',
+        'Could not connect to the server. Please try again or call us at +91 97605 14938.');
+      btn.disabled = false;
+      btn.textContent = 'Submit Registration';
+    }
+  });
+}());

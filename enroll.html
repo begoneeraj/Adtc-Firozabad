@@ -68,125 +68,78 @@
 
       <!-- FORM -->
       <div>
-        <div class="form-card" style="background:#fff;border-color:var(--border);">
-          <h3 style="font-size:1.05rem;margin-bottom:4px;">Enrolment Application Form</h3>
-          <p style="font-size:.78rem;color:var(--muted);margin-bottom:22px;">Fields marked with * are required. This form is for pre-registration — final enrolment is completed in person at the centre.</p>
-          <form id="enrollForm" name="enroll" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleEnquiry(event)" novalidate>
-            <input type="hidden" name="form-name" value="enroll"/>
-            <p style="position:absolute;left:-9999px;" aria-hidden="true">
-              <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"/></label>
-            </p>
+        <div id="enrollFormWrap" class="form-card" style="background:#fff;border-color:var(--border);">
+          <h3 style="font-size:1.05rem;margin-bottom:4px;">Enrolment Registration Form</h3>
+          <p style="font-size:.78rem;color:var(--muted);margin-bottom:6px;">Fill this form and we'll contact you within 24 hours to confirm your slot.</p>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#edf7ed;border:1px solid #b8ddb8;border-radius:4px;padding:5px 10px;font-size:.74rem;font-weight:700;color:#1a6b1a;margin-bottom:20px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="13" height="13" aria-hidden="true"><polyline points="20,6 9,17 4,12"/></svg>
+            No payment required at this stage
+          </div>
 
-            <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);">Personal Details</div>
+          <form id="enrollForm" data-api="http://localhost:5000" novalidate>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">First Name *</label>
-                <input type="text" id="fname" name="fname" placeholder="Ramesh" required/>
+            <!-- 1. Full Name -->
+            <div class="form-group">
+              <label for="enroll-name">Full Name *</label>
+              <input type="text" id="enroll-name" name="name" placeholder="Ramesh Kumar" required autocomplete="name"/>
+              <span class="field-error" id="err-name"></span>
+            </div>
+
+            <!-- 2. Phone Number -->
+            <div class="form-group">
+              <label for="enroll-phone">Phone Number *</label>
+              <div class="input-prefix-wrap">
+                <span class="input-prefix">+91</span>
+                <input type="tel" id="enroll-phone" name="phone" placeholder="9876543210" maxlength="10" inputmode="numeric" required autocomplete="tel"/>
               </div>
-              <div class="form-group">
-                <label for="lname">Last Name *</label>
-                <input type="text" id="lname" name="lname" placeholder="Kumar" required/>
-              </div>
+              <span class="field-hint">10-digit number without spaces (e.g. 9876543210)</span>
+              <span class="field-error" id="err-phone"></span>
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="dob">Date of Birth *</label>
-                <input type="date" id="dob" name="dob" required/>
-              </div>
-              <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender">
-                  <option value="">— Select —</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-
+            <!-- 3. Aadhaar Number -->
             <div class="form-group">
-              <label for="phone">Mobile Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required/>
+              <label for="enroll-aadhaar">Aadhaar Number *</label>
+              <input type="text" id="enroll-aadhaar" name="aadhaar" placeholder="123456789012" maxlength="12" inputmode="numeric" required/>
+              <span class="field-hint">12-digit number, no spaces or dashes</span>
+              <span class="field-error" id="err-aadhaar"></span>
             </div>
 
+            <!-- 4. Learner's Licence Number (optional) -->
             <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com"/>
+              <label for="enroll-ll">Learner's Licence Number <span style="font-weight:400;color:var(--muted);">(optional)</span></label>
+              <input type="text" id="enroll-ll" name="learners_license" placeholder="UP45 20260001234"/>
+              <span class="field-hint">Leave blank if not yet issued</span>
             </div>
 
+            <!-- 5. Preferred Course -->
             <div class="form-group">
-              <label for="address">Residential Address</label>
-              <textarea id="address" name="address" placeholder="House No., Street, Area, Firozabad / Agra District..." style="min-height:70px;"></textarea>
-            </div>
-
-            <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;margin-top:6px;padding-bottom:8px;border-bottom:1px solid var(--border);">Training Preferences</div>
-
-            <div class="form-group">
-              <label for="vehicle">Vehicle Category *</label>
-              <select id="vehicle" name="vehicle" required>
-                <option value="">— Select Category —</option>
-                <option>Two-Wheeler (Motorcycle / Scooter)</option>
-                <option>Light Motor Vehicle — LMV (Car)</option>
-                <option>Two-Wheeler + LMV (Combined)</option>
-                <option>Commercial / Transport Vehicle</option>
-                <option>Not Sure — Please Advise</option>
+              <label for="enroll-course">Preferred Course *</label>
+              <select id="enroll-course" name="preferred_course" required>
+                <option value="">— Select a Course —</option>
+                <option value="Two-Wheeler">Two-Wheeler (Motorcycle / Scooter)</option>
+                <option value="Four-Wheeler">Four-Wheeler (Car / LMV)</option>
+                <option value="Heavy Vehicle">Heavy Vehicle (Commercial / Transport)</option>
               </select>
+              <span class="field-error" id="err-course"></span>
             </div>
 
+            <!-- 6. Email Address -->
             <div class="form-group">
-              <label for="programme">Preferred Programme</label>
-              <select id="programme" name="programme">
-                <option value="">— Select Programme —</option>
-                <option>Regular Batch (2–3 months)</option>
-                <option>Standard Course (4–6 weeks)</option>
-                <option>Intensive Programme (3–4 weeks)</option>
-                <option>Flexible — advise me</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="batch">Preferred Batch Start</label>
-              <select id="batch" name="batch">
-                <option value="">— Select —</option>
-                <option>July 2026 (Next Batch)</option>
-                <option>August 2026</option>
-                <option>September 2026</option>
-                <option>Flexible — any available</option>
-              </select>
-            </div>
-
-            <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;color:var(--muted);text-transform:uppercase;margin-bottom:12px;margin-top:6px;padding-bottom:8px;border-bottom:1px solid var(--border);">Identity &amp; Documentation</div>
-
-            <div class="form-group">
-              <label for="id-type">Primary ID Type</label>
-              <select id="id-type" name="id-type">
-                <option value="">— Select —</option>
-                <option>Aadhaar Card</option>
-                <option>Voter ID Card</option>
-                <option>Passport</option>
-                <option>Driving Licence (if renewing)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="learner">Learner's Licence Number (if available)</label>
-              <input type="text" id="learner" name="learner" placeholder="LL-UP45-XXXXXXX"/>
-            </div>
-
-            <div class="form-group">
-              <label for="notes">Additional Information / Questions</label>
-              <textarea id="notes" name="notes" placeholder="Any specific questions, medical conditions relevant to training, or other information..."></textarea>
+              <label for="enroll-email">Email Address *</label>
+              <input type="email" id="enroll-email" name="email" placeholder="you@example.com" required autocomplete="email"/>
+              <span class="field-hint">Confirmation email will be sent to this address</span>
+              <span class="field-error" id="err-email"></span>
             </div>
 
             <!-- Declaration -->
             <div style="background:var(--off);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-bottom:18px;font-size:.78rem;color:var(--muted);line-height:1.65;">
-              By submitting this form, I confirm that the information provided is accurate to the best of my knowledge. I understand that this is a pre-registration form and final enrolment is completed in person at ADTC Firozabad with original documents.
+              By submitting this form I confirm the information is accurate. This is a pre-registration only — no payment is required now. Our team will contact me to confirm enrolment and guide me on document submission.
             </div>
 
-            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;">Submit Enrolment Application</button>
-            <p class="form-note">Our team will call you on the number provided within 1 working day to confirm your slot and guide you on document submission.</p>
+            <button type="submit" class="btn-primary" id="enrollBtn" style="width:100%;justify-content:center;padding:14px;">
+              Submit Registration
+            </button>
+            <p class="form-note">No payment required &nbsp;·&nbsp; We'll call you within 24 hours</p>
           </form>
         </div>
       </div>
