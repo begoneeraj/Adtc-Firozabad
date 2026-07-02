@@ -342,6 +342,19 @@ function handleEnquiry(e) {
     });
 }
 
+/* ── Page-view tracking — sends current page name to Flask backend ── */
+(function () {
+  const BACKEND = document.getElementById('enrollForm')?.dataset.api || 'http://localhost:5000';
+  const page = document.title.replace(' — ADTC Firozabad', '').replace(' | ADTC Firozabad', '').trim()
+             || window.location.pathname.split('/').pop().replace('.html','') || 'home';
+  fetch(BACKEND + '/api/track', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ page }),
+    keepalive: true,
+  }).catch(() => {});
+}());
+
 /* ── ENROLMENT FORM (enroll.html) — posts to Flask API ── */
 (function () {
   const form = document.getElementById('enrollForm');
