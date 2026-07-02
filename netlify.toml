@@ -14,4 +14,4 @@
     # Disable browser features this site never uses, and opt out of Google's FLoC/Topics tracking cohort
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
     # Whitelist where scripts/styles/images/fonts/connections/frames/forms may load from or post to
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://adtc-firozabad.onrender.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
