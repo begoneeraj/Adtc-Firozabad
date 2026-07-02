@@ -21,7 +21,9 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", secrets.token_hex(32))
 app.permanent_session_lifetime = timedelta(days=7)
-CORS(app, origins=os.getenv("ALLOWED_ORIGINS", "*"))
+_raw_origins = os.getenv("ALLOWED_ORIGINS", "*")
+_origins = "*" if _raw_origins == "*" else [o.strip() for o in _raw_origins.split(",")]
+CORS(app, origins=_origins)
 
 DB_PATH = os.getenv("DB_PATH", "enrollments.db")
 SESSION_MINS = int(os.getenv("SESSION_TIMEOUT_MINUTES", "30"))
